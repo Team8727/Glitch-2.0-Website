@@ -27,7 +27,7 @@ message ticker on the home page, a live countdown to THOR West 2026, and full
 | Robots | `robots.html` | Robot archive (CronkBot → MEGASTUF → Melodie → 2026 chassisbot) |
 | Results | `results.html` | 2026 season table, awards timeline, THOR West countdown |
 | Impact | `impact.html` | Outreach + Sustainability world record |
-| Sponsors | `sponsors.html` | Sponsor slots + Donate |
+| Sponsors | `sponsors.html` | Founding schools (SILSA + AHS) + tiered sponsor logos |
 | Get Involved | `get-involved.html` | Student / mentor / parent / company paths |
 | News | `news.html` | Event + season posts |
 
@@ -76,8 +76,13 @@ assets/
 
 ## Notes / placeholders
 
-- **Sponsor slots** are placeholders ("Your logo here") — drop sponsor logos in `assets/img/` and
-  update the `#sponsors` section on `sponsors.html`.
+- **Sponsors** (`sponsors.html`): founding schools (SILSA + Asheville High, with addresses/websites
+  and their link to the team) plus a tiered corporate/foundation grid — Title $10k+ (Cummins),
+  Platinum $5k+ (AvL, Haakon, Glass Foundation), Gold $3k+ (Baxter, GE Aerospace, Gene Haas),
+  Silver $1k+ (TE Connectivity, BAE Systems, Campbell Shatley, Sugar Hollow Solar, Leidos). Logos
+  live in `assets/img/sponsors/` (AVIF) and `assets/img/schools/`; each links to the partner's site.
+  To add/change a sponsor, drop a logo in `assets/img/sponsors/` and update the tier in
+  `sponsors.html`.
 - The **2025 robot** is listed as undocumented (per the context repo) — fill it in when a team member
   provides details.
 - The **News** page is static; swap in real posts as needed.
