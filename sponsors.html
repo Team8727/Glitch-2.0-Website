@@ -214,7 +214,16 @@
         <p>Every contribution — big or small — gets us closer to kickoff and keeps this student-led
         team free and open to everyone.</p>
         <div class="cta-row">
-          <a class="btn solid" href="mailto:glitchtwopoint0@gmail.com?subject=Donation%20to%20Glitch%202.0">Donate Today</a>
+          <form class="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="glitchtwopoint0@gmail.com">
+            <input type="hidden" name="item_name" value="Donation to Glitch 2.0 — FRC Team 8727">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="no_note" value="0">
+            <button type="submit">Donate via PayPal</button>
+            <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" style="position:absolute;left:-999px">
+          </form>
+          <a class="btn" href="mailto:glitchtwopoint0@gmail.com?subject=Donation%20to%20Glitch%202.0">Donate via Email</a>
           <a class="btn" href="get-involved.html">Get Involved Instead</a>
         </div>
       </div>
