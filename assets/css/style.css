@@ -443,9 +443,41 @@ h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -0.01em; }
 .sponsor-cta { text-align: center; }
 
 /* ---------- PayPal donate form inline with buttons ---------- */
+.paypal-row { display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.donate-card {
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.2rem 1.6rem 1.6rem;
+  min-width: 150px;
+  flex: 0 1 auto;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.donate-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(4, 249, 4, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.donate-card:hover { border-color: var(--neon); box-shadow: 0 0 30px var(--neon-glow), 0 0 60px rgba(4, 249, 4, 0.08); transform: translateY(-4px); background: linear-gradient(180deg, rgba(4, 249, 4, 0.08), var(--surface)); }
+.donate-card:hover::before { opacity: 1; }
+.donate-card .dollar { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--neon); vertical-align: super; }
+.donate-card .num { font-family: var(--font-display); font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 700; color: var(--text); display: block; line-height: 1; }
+.donate-card .num .glow { color: var(--neon); text-shadow: 0 0 14px var(--neon-glow); }
+.donate-card .label { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+.donate-card .btn-sub { display: none; }
 .paypal-form { display: inline-flex; align-items: center; }
 .paypal-form button { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 1.4rem; border: 1px solid var(--neon); color: var(--neon); background: var(--neon); color: #051205; cursor: pointer; transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
 .paypal-form button:hover { background: transparent; color: var(--neon); box-shadow: 0 0 24px var(--neon-glow); }
+.cta-sub { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.cta-sub a { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-2); }
+.cta-sub a b { color: var(--neon); font-weight: 500; }
 
 /* ---------- Sponsors: founding schools (Spectrum-style card) ---------- */
 .schools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem; align-items: stretch; }
