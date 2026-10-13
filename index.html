@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GLITCH 2.0 | FRC Team 8727 — Asheville High School / SILSA Robotics</title>
-  <meta name="description" content="FRC 8727 Glitch 2.0 — Asheville High School's student-led FIRST Robotics Competition team. Rookie 2022, two-time Blue Banner winners, 2026 district event champions. Meet the robots, our record, and how to get involved.">
+  <meta name="description" content="FRC 8727 Glitch 2.0 — Asheville High School's student-led FIRST Robotics Competition team, and the second chapter of Glitch (FRC 5854). Rookie 2022, two-time Blue Banner winners, 2026 district event champions.">
   <meta name="author" content="Team 8727 Glitch 2.0">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="GLITCH 2.0 | FRC Team 8727">
-  <meta property="og:description" content="Asheville High School's student-led FIRST Robotics Competition team. Rookie 2022 · Blue Banner winners · 2026 district champions.">
+  <meta property="og:description" content="Asheville High School's student-led FIRST Robotics Competition team — the second chapter of Glitch (FRC 5854). Rookie 2022 · Blue Banner winners · 2026 district champions.">
   <meta property="og:site_name" content="Glitch 2.0">
   <meta property="og:image" content="assets/img/logo.png">
   <meta name="theme-color" content="#04F904">
@@ -25,7 +25,7 @@
   <!-- ================= NAV ================= -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Glitch 2.0 home">
+      <a class="brand" href="index.html" aria-label="Glitch 2.0 home">
         <span class="brand-mark" aria-hidden="true">G</span>
         <span>
           <span class="brand-name">GLITCH <span>2.0</span></span>
@@ -34,14 +34,15 @@
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links" id="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#robots">Robots</a></li>
-          <li><a href="#results">Results</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
-          <li><a href="#get-involved">Get Involved</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a class="btn solid" href="#donate">Donate</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="robots.html">Robots</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a class="btn solid" href="sponsors.html#donate">Donate</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
@@ -61,17 +62,20 @@
           </h1>
           <p class="hero-sub">
             Asheville High School's <strong>student-led</strong> robotics team —
-            where welcoming people, hard engineering, and a little bit of chaos build robots that win.
+            the second chapter of a team that started as <strong>Glitch 5854</strong>.
           </p>
           <div class="hero-cta">
-            <a class="btn solid" href="#robots">Meet the Robots</a>
-            <a class="btn" href="#get-involved">Get Involved</a>
+            <a class="btn solid" href="about.html">Why 2.0?</a>
+            <a class="btn" href="robots.html">Meet the Robots</a>
+          </div>
+          <div class="hero-legacy">
+            <span>WHY 2.0? THE NAME SURVIVED — THE TEAM WAS REBUILT.</span>
           </div>
           <div class="hero-meta">
+            <span><b>ORIGINS</b> GLITCH 5854</span>
             <span><b>ROOKIE</b> 2022</span>
             <span><b>2×</b> BLUE BANNER</span>
             <span><b>2026</b> DISTRICT CHAMPS</span>
-            <span><b>WORLDS</b> HOUSTON '24</span>
           </div>
         </div>
         <div class="hero-visual">
@@ -88,64 +92,69 @@
       </a>
     </section>
 
-    <!-- ================= TICKER ================= -->
-    <div class="marquee" id="ticker" aria-hidden="true">
-      <div class="marquee-track">
-        <span><b>REBUILT 2026</b></span>
-        <span><b>THOR WEST</b> OCT 24</span>
-        <span><b>DISTRICT EVENT WINNERS</b> UNC ASHEVILLE</span>
-        <span><b>AUTONOMOUS AWARD</b></span>
-        <span><b>32–17–0</b> 2026 RECORD</span>
-        <span><b>FIRST NC</b> DISTRICT</span>
-        <span><b>ASHEVILLE</b> HIGH SCHOOL / SILSA</span>
-        <span><b>STUDENT-LED</b> · ALL-INCLUSIVE</span>
-        <span><b>#8727</b></span>
-      </div>
+    <!-- ================= TICKER (rotating messages) ================= -->
+    <div class="ticker" id="ticker">
+      <span class="ticker-label" aria-hidden="true">LIVE</span>
+      <p class="ticker-text" id="ticker-text" aria-live="polite"></p>
     </div>
 
-    <!-- ================= ABOUT ================= -->
-    <section class="section" id="about">
+    <!-- ================= ORIGINS BAND ================= -->
+    <section class="section" id="origins">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">01</span> About the team</span>
-          <h2>Engineering, <span class="glow-text">welcome</span>, and a little bit of glitch.</h2>
-          <p>We're Glitch 2.0 (FRC 8727) — a welcoming, all-inclusive, student-led robotics team at
-          Asheville High School in Asheville, North Carolina. We build robots, learn real engineering,
-          and work to get young people excited about STEM in our community.</p>
+        <div class="origins-band reveal">
+          <div>
+            <span class="kicker">Our origins</span>
+            <h3>We're <span class="glow-text">2.0</span> because this is the second chapter of <b style="color:var(--text)">Glitch</b>.</h3>
+            <p>Our story starts with <strong>Glitch 5854</strong> — a community team at UNC Asheville that
+            competed from 2016 to 2020. When the pandemic paused it, a mentor from that team helped rebuild
+            it in 2021 for Asheville High School's engineering program. We kept the name, kept the spirit,
+            and started fresh as a rookie in 2022. <strong>That's the whole story behind the 2.0.</strong></p>
+            <a class="btn" href="about.html" style="margin-top:1.2rem">Read the full story</a>
+          </div>
+          <div style="text-align:center">
+            <div class="lineage" style="margin-bottom:0; justify-content:center">
+              <div class="lineage-node">
+                <span class="lg-year">2016</span>
+                <b>GLITCH 5854</b>
+                <small>Community team · UNC Asheville</small>
+              </div>
+              <div class="lineage-arrow" aria-hidden="true"></div>
+              <div class="lineage-node">
+                <span class="lg-year">2022</span>
+                <b style="color:var(--neon)">GLITCH 2.0</b>
+                <small>FRC 8727 · Asheville High / SILSA</small>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="about-grid">
-          <div class="about-copy reveal d1">
-            <p><strong>The name is legacy.</strong> Our roots go back to <strong>Glitch 5854</strong>,
-            a community team hosted at UNC Asheville that competed from 2016–2020 before pausing during the
-            pandemic. In the summer of 2021, a mentor from that team approached the AHS/SILSA engineering
-            director about reforming — and <strong>Glitch 2.0</strong> was born for the Asheville High
-            engineering department, keeping the original name and the original spirit.</p>
-            <p>Because only three of us had ever been to a competition, we officially started as a
-            <strong>rookie team in 2022</strong> — and won <strong>Rookie All Star</strong> in our very
-            first event. Since then we've grown into a team that competes for wins, takes home judged
-            awards, and treats <strong>outreach and volunteering</strong> as seriously as the robot.</p>
-            <p>We're part of the <strong>FIRST North Carolina (FNC)</strong> district, we run a full
-            business and sponsorship program, and every member gets hands-on experience — from the
-            drivetrain to the drive team.</p>
-
-            <div class="facts">
-              <div class="fact"><b>LOCATION</b><span>Asheville, North Carolina</span></div>
-              <div class="fact"><b>HOME</b><span>Asheville High School / SILSA</span></div>
-              <div class="fact"><b>DISTRICT</b><span>FIRST North Carolina</span></div>
-              <div class="fact"><b>ROOKIE YEAR</b><span>2022</span></div>
-              <div class="fact"><b>PROGRAM</b><span>FRC · Grades 9–12</span></div>
-              <div class="fact"><b>ETHOS</b><span>Welcoming &amp; all-inclusive</span></div>
-            </div>
-          </div>
-
-          <div class="terminal reveal d2" role="img" aria-label="Glitch 2.0 status readout">
-            <div class="terminal-bar">
-              <i></i><i></i><i></i>
-              <span>glitch2.0 — team_status</span>
-            </div>
-            <div class="terminal-body" id="term"></div>
-          </div>
+    <!-- ================= QUICK HIGHLIGHTS ================= -->
+    <section class="section" id="highlights" style="padding-top:0">
+      <div class="container">
+        <div class="quick-grid">
+          <a class="quick-card reveal" href="robots.html" style="color:inherit">
+            <span class="num">// 01 · THE MACHINES</span>
+            <h3>Meet the robots</h3>
+            <p>From rookie-year CronkBot to Melodie and the 2026 district-champion chassisbot — every
+            season's build, in one garage.</p>
+            <span class="go">SEE THE ARCHIVE →</span>
+          </a>
+          <a class="quick-card reveal d1" href="results.html" style="color:inherit">
+            <span class="num">// 02 · THE RECORD</span>
+            <h3>Wins &amp; awards</h3>
+            <p>Two Blue Banners, a district event win, and a world record. The numbers behind the team —
+            plus what's next.</p>
+            <span class="go">VIEW RESULTS →</span>
+          </a>
+          <a class="quick-card reveal d2" href="get-involved.html" style="color:inherit">
+            <span class="num">// 03 · THE PEOPLE</span>
+            <h3>Join the team</h3>
+            <p>Student, mentor, parent, or partner — everyone's welcome and everyone builds. There's a
+            seat at the pit table.</p>
+            <span class="go">GET INVOLVED →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -163,388 +172,15 @@
       </div>
     </section>
 
-    <!-- ================= ROBOTS ================= -->
-    <section class="section" id="robots">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">02</span> The robot archive</span>
-          <h2>Every season, a new <span class="glow-text">machine</span>.</h2>
-          <p>From a rookie-year crawler to a swerve-chassis district champion — here's the robot garage.
-          Each one taught us something the next one needed.</p>
-        </div>
-
-        <div class="robot-list">
-          <!-- 2026 -->
-          <article class="robot-card reveal">
-            <div class="robot-side">
-              <div>
-                <div class="year">SEASON 2026 · REBUILT™</div>
-                <div class="name">CHASSISBOT</div>
-                <div class="aka">the 2026 competition robot</div>
-              </div>
-              <div>
-                <span class="status win">▣ DISTRICT EVENT WINNER</span>
-                <span class="status" style="margin-top:0.5rem">AUTONOMOUS AWARD</span>
-              </div>
-            </div>
-            <div class="robot-main">
-              <p><strong>Our 2026 champion.</strong> A swerve chassis running CTRE TalonFX / Phoenix 6,
-              built around a fixed-angle flywheel shooter, an intake roller, and a two-motor indexer.
-              Strong, repeatable PathPlanner autonomous carried it to a <strong>15–3–0</strong> record
-              and the win at the UNC Asheville district event.</p>
-              <div class="robot-tags">
-                <span><b>SWERVE</b> DRIVETRAIN</span>
-                <span><b>FIXED 45°</b> FLYWHEEL SHOOTER</span>
-                <span><b>PATHPLANNER</b> AUTO</span>
-                <span><b>32–17–0</b> SEASON</span>
-                <span><b>DISTRICT</b> #11</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2024 -->
-          <article class="robot-card reveal">
-            <div class="robot-side">
-              <div>
-                <div class="year">SEASON 2024 · CRESCENDO</div>
-                <div class="name">MELODIE</div>
-                <div class="aka">a.k.a. Beluga</div>
-              </div>
-              <div>
-                <span class="status win">▣ 2× BLUE BANNER</span>
-                <span class="status" style="margin-top:0.5rem">WORLDS 2024</span>
-              </div>
-            </div>
-            <div class="robot-main">
-              <p><strong>The first swerve robot.</strong> Melodie brought the team its first-ever
-              winners Blue Banners — twice. A 26.5" × 26.5" chassis with four REV MAXSwerve modules and
-              TPU tread, a full-width over-the-bumper intake, and a <strong>pivoting shooter</strong>
-              that could score up into the speaker and down into the amp from one mechanism. Endgame was a
-              custom hook on a single telescoping climber, and drivers got bright LEDs plus haptic
-              feedback — an ongoing team signature.</p>
-              <div class="robot-tags">
-                <span><b>SWERVE</b> DRIVETRAIN</span>
-                <span><b>PIVOTING</b> SHOOTER</span>
-                <span><b>OVER-THE-BUMPER</b> INTAKE</span>
-                <span><b>LED + HAPTIC</b> FEEDBACK</span>
-                <span><b>TELESCOPING</b> CLIMBER</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2023 -->
-          <article class="robot-card reveal">
-            <div class="robot-side">
-              <div>
-                <div class="year">SEASON 2023 · CHARGED UP</div>
-                <div class="name">MEGASTUF</div>
-                <div class="aka">the goose</div>
-              </div>
-              <div>
-                <span class="status win">▣ EXCELLENCE IN ENGINEERING</span>
-                <span class="status" style="margin-top:0.5rem">FIRST SUSTAINABILITY ×2</span>
-              </div>
-            </div>
-            <div class="robot-main">
-              <p><strong>Our most complex build.</strong> MEGASTUF ran a two-degree-of-freedom
-              counterbalanced arm on a 320° turreted base — controlled with a state-space model and a
-              full physics simulation for fluid scoring trajectories. The turret spun on a 12-inch
-              3D-printed pulley (where the name came from), all on a custom Corner Omni West Coast
-              drivetrain built for agility on a budget.</p>
-              <div class="robot-tags">
-                <span><b>2DOF</b> ARM</span>
-                <span><b>320°</b> TURRET</span>
-                <span><b>STATE-SPACE</b> CONTROL</span>
-                <span><b>3D-PRINTED</b> PULLEY</span>
-                <span><b>CUSTOM</b> DRIVETRAIN</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2025 -->
-          <article class="robot-card reveal">
-            <div class="robot-side">
-              <div>
-                <div class="year">SEASON 2025 · REEFSCAPE</div>
-                <div class="name">UNRECORDED</div>
-                <div class="aka">season code exists · robot undocumented</div>
-              </div>
-              <div>
-                <span class="status unknown">STATUS: UNKNOWN</span>
-              </div>
-            </div>
-            <div class="robot-main">
-              <p>The 2025 robot never made it into our public archive. The season code is preserved in
-              our GitHub — but the story needs a team member to write it. <strong>If that's you, the
-              archive has a slot waiting.</strong></p>
-              <div class="robot-tags">
-                <span><b>CODE</b> PRESERVED</span>
-                <span><b>HISTORY</b> TBD</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2022 -->
-          <article class="robot-card reveal">
-            <div class="robot-side">
-              <div>
-                <div class="year">SEASON 2022 · RAPID REACT</div>
-                <div class="name">CRONKBOT</div>
-                <div class="aka">rookie year</div>
-              </div>
-              <div>
-                <span class="status win">▣ ROOKIE ALL STAR</span>
-                <span class="status" style="margin-top:0.5rem">HIGHEST ROOKIE SEED</span>
-              </div>
-            </div>
-            <div class="robot-main">
-              <p><strong>Where it all started.</strong> The rookie-year robot proved this team was
-              already thinking differently: a belt-driven ball elevator with automatic indexing,
-              print-in-place Mecanum intake wheels, an adjustable shooting hood that could be changed
-              between matches, and a dual-action climber with two static and two kinematic arms that hit a
-              very high traversal success rate.</p>
-              <div class="robot-tags">
-                <span><b>BELT ELEVATOR</b> + INDEXER</span>
-                <span><b>ADJUSTABLE</b> HOOD</span>
-                <span><b>DUAL-ACTION</b> CLIMBER</span>
-                <span><b>3D-PRINTED</b> INTAKE</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= RESULTS ================= -->
-    <section class="section" id="results">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">03</span> Results &amp; record</span>
-          <h2>Wins, awards, and the <span class="glow-text">hard numbers</span>.</h2>
-          <p>The 2026 REBUILT season was our best yet — a home-event win, an Autonomous Award, and a
-          top-11 district finish. Next up: THOR West 2026.</p>
-        </div>
-
-        <div class="results-grid">
-          <div class="reveal">
-            <div style="overflow-x:auto">
-              <table class="season-table">
-                <thead>
-                  <tr><th>2026 Event</th><th>Rank</th><th>Record</th><th>Result</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><b>Cabarrus</b> · Concord, NC</td>
-                    <td><span class="stat-badge">#5</span></td>
-                    <td>9–6–0</td>
-                    <td><span class="award">Team Sustainability (Dow)</span></td>
-                  </tr>
-                  <tr class="hl">
-                    <td><b>UNC Asheville</b> · Home event</td>
-                    <td><span class="stat-badge">#2</span></td>
-                    <td><b>15–3–0</b></td>
-                    <td><span class="award">▣ EVENT WINNER + Autonomous</span></td>
-                  </tr>
-                  <tr>
-                    <td><b>NC State Champs</b> · Greensboro, NC</td>
-                    <td><span class="stat-badge">#20</span></td>
-                    <td>8–8–0</td>
-                    <td><span class="award">Team Sustainability (Dow)</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin-top:0.9rem">
-              OVERALL · 32–17–0 · FNC DISTRICT RANK #11 · 204 DISTRICT POINTS</p>
-
-            <div class="awards">
-              <h3>// AWARDS LOG</h3>
-              <div class="award-list">
-                <div class="award-item reveal"><div class="yr">2022</div><p><b>Rookie All Star</b> &amp; <b>Highest Rookie Seed</b> — UNC Asheville · <b>Highest Rookie Seed</b> &amp; <b>Quality Award</b> — UNC Pembroke</p></div>
-                <div class="award-item reveal"><div class="yr">2023</div><p><b>Sustainability Award</b> (first of FNC 2023) — UNC Asheville · <b>Excellence in Engineering</b> — Mecklenburg County · <b>First-ever FNC district championship Sustainability Award</b> — State</p></div>
-                <div class="award-item reveal"><div class="yr">2024</div><p><b>Winners Blue Banner ×2</b> — UNC Pembroke &amp; UNC Asheville · <b>World record: most Sustainability Awards</b> — State, ECU</p></div>
-                <div class="award-item reveal"><div class="yr">2026</div><p><b>District Event Winner</b> + <b>Autonomous Award (Google.org)</b> — UNC Asheville · <b>Team Sustainability (Dow) ×2</b></p></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event card -->
-          <aside class="event-card reveal d1">
-            <span class="tag">UP NEXT · OFF-SEASON</span>
-            <h3>THOR West 2026</h3>
-            <div class="when">SATURDAY · OCT 24, 2026</div>
-            <div class="where">R-S Central High School · 641 US-221, Rutherfordton, NC — host FRC 5727 Omegabytes · <strong>free admission, open to the public from 9 AM</strong></div>
-            <div class="countdown" id="countdown" aria-label="Countdown to THOR West">
-              <div class="cd-cell"><b data-d>--</b><span>Days</span></div>
-              <div class="cd-cell"><b data-h>--</b><span>Hrs</span></div>
-              <div class="cd-cell"><b data-m>--</b><span>Min</span></div>
-              <div class="cd-cell"><b data-s>--</b><span>Sec</span></div>
-            </div>
-            <p style="font-size:0.88rem;color:var(--text-2)">We'll run our 2026 REBUILT robot one more time
-            on a real field before the 2027 season. Come watch the drive team do their thing.</p>
-            <div class="note">// SCHEDULE: check-in 7AM · public 9AM · quals 10AM · alliance 2:15PM · finals 3PM</div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= IMPACT ================= -->
-    <section class="section" id="impact">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">04</span> Impact</span>
-          <h2>Robots are the <span class="glow-text">excuse</span>. People are the point.</h2>
-          <p>We measure success in more than match wins. Since our rookie year we've treated outreach,
-          community service, and building good humans as engineering-adjacent priorities — and the judges
-          have noticed.</p>
-        </div>
-
-        <div class="impact-grid">
-          <div class="impact-card reveal">
-            <span class="ico" aria-hidden="true">◎</span>
-            <h3>Community &amp; STEM outreach</h3>
-            <p>We volunteer in our local community and work to get young people excited about STEM —
-            because a robotics team shouldn't just stay in its own building.</p>
-          </div>
-          <div class="impact-card reveal d1">
-            <span class="ico" aria-hidden="true">◆</span>
-            <h3>Life skills for students</h3>
-            <p>Members build real skills in engineering, project management, public speaking, and
-            teamwork — hands-on, student-led, and owned by the students doing the work.</p>
-          </div>
-          <div class="impact-card reveal d2">
-            <span class="ico" aria-hidden="true">⬡</span>
-            <h3>Business &amp; sustainability</h3>
-            <p>We run sponsorship and business planning as an active team function. Judged awards are a
-            real priority — not a side activity.</p>
-          </div>
-          <div class="impact-highlight reveal">
-            <span class="num">WORLD RECORD</span>
-            <p>In 2024 we set the <b>world record for most Sustainability Awards</b> in FIRST history,
-            overtaking team 948 — then followed it with a 2026 season that added more. It's a record that
-            says everything about who we are.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SPONSORS ================= -->
-    <section class="section" id="sponsors">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">05</span> Sponsors &amp; partners</span>
-          <h2>Powered by people who <span class="glow-text">believe</span> in students.</h2>
-        </div>
-
-        <div class="sponsor-grid">
-          <div class="sponsor-slot reveal">Your logo here</div>
-          <div class="sponsor-slot reveal d1">Your logo here</div>
-          <div class="sponsor-slot reveal d2">Your logo here</div>
-        </div>
-
-        <p class="sponsor-note">Every dollar from our partners goes toward parts, registration, travel,
-        and keeping this team free for every student who wants in. Sponsors make student-led STEM possible
-        — and we make sure they're proud to be part of it.</p>
-
-        <div class="sponsor-cta reveal">
-          <a class="btn blue" href="mailto:glitchtwopoint0@gmail.com?subject=Sponsoring%20Glitch%202.0">Become a Sponsor</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= GET INVOLVED ================= -->
-    <section class="section" id="get-involved">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">06</span> Get involved</span>
-          <h2>There's a seat at the <span class="glow-text">pit table</span>.</h2>
-          <p>Whether you're a student, a parent, a mentor, or a company — there's a role for you.
-          Glitch 2.0 is built by everyone who shows up.</p>
-        </div>
-
-        <div class="involve-grid">
-          <div class="involve-card reveal" data-tag="STUDENT">
-            <h3>Students</h3>
-            <p>No experience required — we teach everything. Learn mechanical design, wiring, programming,
-            strategy, or business. Join the build, drive the robot, or run the pit. Your first year is
-            about learning; every year after is about leading.</p>
-            <span class="tag-2">GRADES 9–12 · ASHEVILLE HIGH SCHOOL / SILSA</span>
-          </div>
-          <div class="involve-card reveal d1" data-tag="MENTOR">
-            <h3>Mentors</h3>
-            <p>We're always looking for engineers, teachers, and professionals to guide students. Mentor
-            on mechanical, electrical, software, or business — or just bring your experience and your
-            patience. It's some of the most rewarding volunteer work around.</p>
-            <span class="tag-2">NO ROBOT EXPERIENCE NEEDED</span>
-          </div>
-          <div class="involve-card reveal" data-tag="PARENT">
-            <h3>Parents &amp; families</h3>
-            <p>Help with logistics, snacks, transportation, fundraising, or event support. The team runs
-            on student energy and adult support working together — every family contribution matters.</p>
-            <span class="tag-2">MANY HANDS MAKE LIGHT WORK</span>
-          </div>
-          <div class="involve-card reveal d1" data-tag="COMPANY">
-            <h3>Sponsors &amp; partners</h3>
-            <p>Fund the season, donate materials, or host workshops. Sponsors get their name on the bot,
-            the banner, and the website — plus a team of future engineers who'll remember who believed
-            in them.</p>
-            <span class="tag-2">SEE THE SPONSORS SECTION ABOVE</span>
-          </div>
-        </div>
-
-        <div class="sponsor-cta reveal" style="margin-top:2.2rem">
-          <a class="btn solid" href="mailto:glitchtwopoint0@gmail.com?subject=Glitch%202.0%20—%20I%20want%20to%20get%20involved">Email Us to Join</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= NEWS ================= -->
-    <section class="section" id="news">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="kicker"><span class="idx">07</span> News</span>
-          <h2>From the <span class="glow-text">pit</span>.</h2>
-          <p>The latest from the team — events, results, and what's next.</p>
-        </div>
-
-        <div class="news-grid">
-          <article class="news-card featured reveal">
-            <span class="tag">EVENT</span>
-            <div class="date">OCT 24, 2026</div>
-            <h3>THOR West 2026 — see you there</h3>
-            <p>We're heading to Rutherfordton for the off-season THOR West competition — free and open to
-            the public. Our 2026 REBUILT robot gets one last run on a real field before kickoff.</p>
-            <a class="more" href="#results">Read more →</a>
-          </article>
-          <article class="news-card reveal d1">
-            <span class="tag">SEASON WRAP</span>
-            <div class="date">APR 2026</div>
-            <h3>2026: a home-event championship</h3>
-            <p>A 15–3–0 run at the UNC Asheville district event capped our best season yet — District Event
-            Winner plus the Autonomous Award, finishing #11 in the state district.</p>
-            <a class="more" href="#results">Read more →</a>
-          </article>
-          <article class="news-card reveal d2">
-            <span class="tag">2027</span>
-            <div class="date">JAN 9, 2027</div>
-            <h3>BIOCORE™ — the next build</h3>
-            <p>The 2027 game reveal lands January 9, 2027. The design room will be locked, loaded, and
-            ready the second the manual drops.</p>
-            <a class="more" href="#robots">Read more →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= DONATE / CTA ================= -->
-    <section class="section" id="donate">
+    <!-- ================= CTA ================= -->
+    <section class="section" id="donate-cta">
       <div class="container cta-band reveal">
         <h2>Help keep the <span class="glow-text">glitch</span> running.</h2>
         <p>Your support covers parts, travel, and keeps this student-led team free and open to everyone.
         Every contribution — big or small — gets us closer to kickoff.</p>
         <div class="cta-row">
-          <a class="btn solid" href="mailto:glitchtwopoint0@gmail.com?subject=Donation%20to%20Glitch%202.0">Donate Today</a>
-          <a class="btn" href="mailto:glitchtwopoint0@gmail.com?subject=Sponsoring%20Glitch%202.0">Sponsor Us</a>
+          <a class="btn solid" href="sponsors.html#donate">Donate Today</a>
+          <a class="btn" href="get-involved.html">Get Involved</a>
         </div>
       </div>
     </section>
@@ -555,27 +191,27 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="#top" aria-label="Glitch 2.0 home">
+          <a class="brand" href="index.html" aria-label="Glitch 2.0 home">
             <span class="brand-mark" aria-hidden="true">G</span>
             <span>
               <span class="brand-name">GLITCH <span>2.0</span></span>
               <span class="brand-sub">FRC 8727 · ASHEVILLE NC</span>
             </span>
           </a>
-          <p class="brand-desc">Asheville High School's student-led FIRST Robotics Competition team.
-          Welcoming, all-inclusive, and building the next generation of engineers.</p>
+          <p class="brand-desc">The second chapter of Glitch (FRC 5854) — Asheville High School's
+          student-led FIRST Robotics Competition team. Everyone's welcome. Everyone builds.</p>
           <p style="font-family:var(--font-mono);font-size:0.8rem;color:var(--neon)">glitchtwopoint0@gmail.com</p>
         </div>
 
         <div>
           <h4>Explore</h4>
           <ul class="footer-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#robots">Robots</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#impact">Impact</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#donate">Donate</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="robots.html">Robots</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="sponsors.html#donate">Donate</a></li>
           </ul>
         </div>
 

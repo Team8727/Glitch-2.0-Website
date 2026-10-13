@@ -40,26 +40,12 @@
     });
   }
 
-  /* ---------- Scrollspy ---------- */
-  var spyLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  var sections = [];
-  spyLinks.forEach(function (a) {
-    var id = a.getAttribute('href').slice(1);
-    var el = document.getElementById(id);
-    if (el) sections.push({ id: id, el: el, link: a });
+  /* ---------- Active nav link (per page) ---------- */
+  var page = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a[href]').forEach(function (a) {
+    var target = a.getAttribute('href').split('#')[0] || 'index.html';
+    if (target === page) a.classList.add('active');
   });
-  if ('IntersectionObserver' in window && sections.length) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          sections.forEach(function (s) {
-            s.link.classList.toggle('active', s.id === en.target.id);
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(function (s) { spy.observe(s.el); });
-  }
 
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll('.reveal');
@@ -77,35 +63,55 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- Marquee: duplicate content for seamless loop ---------- */
-  var track = document.querySelector('.marquee-track');
-  if (track) {
-    // Duplicate the items inside the single track; the CSS animates translateX(-50%),
-    // which then loops seamlessly (one full copy of the content per loop).
-    track.innerHTML += track.innerHTML;
+  /* ---------- Home ticker: rotate individual messages ---------- */
+  var tickerEl = document.getElementById('ticker-text');
+  if (tickerEl) {
+    var msgs = [
+      'ORIGINS · <b>GLITCH 5854</b> → <b>GLITCH 2.0 (8727)</b>',
+      '2026 · <b>DISTRICT EVENT WINNERS</b>',
+      'NEXT · <b>THOR WEST</b> — OCT 24, 2026',
+      '2024 · <b>2× BLUE BANNER</b>',
+      'ROOKIE YEAR · <b>2022</b>',
+      'FIRST NC · <b>ASHEVILLE, NC</b>',
+      '<b>STUDENT-LED</b> · EVERYONE IS WELCOME',
+      '<b>#8727</b> · GLITCH 2.0'
+    ];
+    var i = 0;
+    var render = function () {
+      tickerEl.innerHTML = msgs[i];
+      tickerEl.classList.remove('fade-out');
+    };
+    var rotate = function () {
+      tickerEl.classList.add('fade-out');
+      setTimeout(function () {
+        i = (i + 1) % msgs.length;
+        render();
+      }, 350);
+    };
+    render();
+    if (!reduced) setInterval(rotate, 2800);
   }
 
-  /* ---------- Terminal typing ---------- */
+  /* ---------- About: terminal typing ---------- */
   var term = document.getElementById('term');
   if (term && !reduced) {
     var lines = [
       { t: '> init glitch2.0 --team=8727', cls: '' },
-      { t: '[ OK ] FRC Rookie Year ................ 2022', cls: 'ok' },
-      { t: '[ OK ] Home .......................... Asheville, NC', cls: 'ok' },
-      { t: '[ OK ] District ...................... FIRST North Carolina', cls: 'ok' },
-      { t: '[ OK ] Ethos ......................... welcoming + all-inclusive', cls: 'ok' },
-      { t: '[ OK ] 2026 record ................... 32-17-0', cls: 'ok' },
-      { t: '[ OK ] 2026 result ................... District Event Winner', cls: 'ok' },
-      { t: '[ OK ] Blue Banners .................. x2 (2024)', cls: 'ok' },
-      { t: '[ OK ] Worlds ........................ Houston 2024', cls: 'ok' },
-      { t: '> status --next', cls: '' },
-      { t: '[ >> ] THOR West 2026 ................ Oct 24', cls: '' },
-      { t: '[ >> ] 2027 BIOCORE kickoff ........... Jan 9, 2027', cls: '' },
+      { t: '[ OK ] Rookie Year ................ 2022', cls: 'ok' },
+      { t: '[ OK ] Home ...................... Asheville, NC', cls: 'ok' },
+      { t: '[ OK ] District .................. FIRST North Carolina', cls: 'ok' },
+      { t: '[ OK ] Ethos .................... every1 welcome, every1 builds', cls: 'ok' },
+      { t: '[ OK ] 2026 record ............... 32-17-0', cls: 'ok' },
+      { t: '[ OK ] 2026 result ............... District Event Winner', cls: 'ok' },
+      { t: '[ OK ] Blue Banners .............. x2 (2024)', cls: 'ok' },
+      { t: '[ OK ] Worlds .................... Houston 2024', cls: 'ok' },
+      { t: '> origin', cls: '' },
+      { t: '[ >> ] 5854 (2016-2020) --> 8727 (2022-now)', cls: 'dim' },
+      { t: '[ >> ] name survived, team rebuilt = 2.0', cls: 'dim' },
       { t: '> the glitch is in the code._', cls: 'dim' }
     ];
     var body = term;
     var li = 0;
-    var ci = 0;
     var cur = document.createElement('span');
     cur.className = 'cursor';
     body.appendChild(cur);
@@ -127,19 +133,18 @@
         if (charIdx >= ln.t.length) {
           clearInterval(timer);
           li++;
-          setTimeout(step, 240);
+          setTimeout(step, 200);
         }
-      }, 22);
+      }, 20);
     }
     setTimeout(step, 500);
   } else if (term) {
-    // Static fallback for reduced motion / no JS-heavy typing
     var fallback = [
       '> init glitch2.0 --team=8727',
       '[ OK ] Rookie year 2022 · Asheville, NC · FIRST North Carolina',
+      '[ OK ] Ethos · every1 welcome, every1 builds',
       '[ OK ] 2026 record 32-17-0 · District Event Winner',
-      '[ OK ] Blue Banners x2 (2024) · Worlds Houston 2024',
-      '> next: THOR West 2026 (Oct 24) · BIOCORE kickoff Jan 9 2027',
+      '> origin · 5854 (2016-2020) -> 8727 (2022-now)',
       '> the glitch is in the code.'
     ];
     fallback.forEach(function (l) {
@@ -150,7 +155,7 @@
     });
   }
 
-  /* ---------- Countdown to THOR West (Sat Oct 24, 2026, 10:00 AM) ---------- */
+  /* ---------- Results: countdown to THOR West (Sat Oct 24, 2026, 10 AM) ---------- */
   var cd = document.getElementById('countdown');
   if (cd) {
     var target = new Date('2026-10-24T10:00:00-04:00').getTime();
@@ -168,14 +173,10 @@
         cells.m.textContent = '00'; cells.s.textContent = '00';
         return;
       }
-      var d = Math.floor(diff / 86400000);
-      var h = Math.floor((diff % 86400000) / 3600000);
-      var m = Math.floor((diff % 3600000) / 60000);
-      var s = Math.floor((diff % 60000) / 1000);
-      cells.d.textContent = pad(d);
-      cells.h.textContent = pad(h);
-      cells.m.textContent = pad(m);
-      cells.s.textContent = pad(s);
+      cells.d.textContent = pad(Math.floor(diff / 86400000));
+      cells.h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+      cells.m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+      cells.s.textContent = pad(Math.floor((diff % 60000) / 1000));
     };
     tick();
     setInterval(tick, 1000);

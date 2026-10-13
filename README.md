@@ -1,9 +1,8 @@
 # GLITCH 2.0 — FRC Team 8727 Website
 
-A single-page site for **Glitch 2.0 (FRC Team 8727)**, Asheville High School / SILSA Robotics.
+A multi-page static site for **Glitch 2.0 (FRC Team 8727)**, Asheville High School / SILSA Robotics.
 
-Built as a static site (plain HTML/CSS/JS) — no build step — so it deploys cleanly to
-**GitHub Pages**.
+Built as a plain static site (no build step) — deploys cleanly to **GitHub Pages**.
 
 ## Aesthetic
 
@@ -15,47 +14,49 @@ Dark, techy, on-brand "glitch" look using the team's own palette:
 | Blue (secondary) | `#116DFF` |
 | Near-black (background) | `#111111` / `#050505` |
 
-Includes glitch RGB-split headings, scanlines, a CRT terminal readout, a scrolling ticker, a live
-countdown to THOR West 2026, and full `prefers-reduced-motion` support.
+Includes glitch RGB-split headings, scanlines, a CRT terminal readout on the story page, a rotating
+message ticker on the home page, a live countdown to THOR West 2026, and full
+`prefers-reduced-motion` support.
 
-## Content
+## Pages
 
-All copy is drawn from the **Glitch 2.0 AI Context Pack** (`Glitch-2.0-Agent-Context`): team history,
-robot archive (CronkBot → MEGASTUF → Melodie → 2026 chassisbot), competition record, awards, impact,
-and the upcoming THOR West 2026 event.
+| Page | File | Contents |
+|------|------|----------|
+| Home | `index.html` | Hero, origins teaser, highlights, stats |
+| Our Story | `about.html` | **Why 2.0** — the Glitch 5854 → 8727 story + simplified ethos |
+| Robots | `robots.html` | Robot archive (CronkBot → MEGASTUF → Melodie → 2026 chassisbot) |
+| Results | `results.html` | 2026 season table, awards timeline, THOR West countdown |
+| Impact | `impact.html` | Outreach + Sustainability world record |
+| Sponsors | `sponsors.html` | Sponsor slots + Donate |
+| Get Involved | `get-involved.html` | Student / mentor / parent / company paths |
+| News | `news.html` | Event + season posts |
 
-Sections:
+All copy is drawn from the **Glitch 2.0 AI Context Pack** (`Glitch-2.0-Agent-Context`).
 
-- Hero + scrolling ticker
-- About (team story, lineage from Glitch 5854)
-- Stats bar
-- Robot archive
-- Results / 2026 season table + awards timeline + THOR West countdown
-- Impact (outreach + Sustainability world record)
-- Sponsors
-- Get Involved
-- News
-- Donate / Contact
-- Footer with socials
+## Why "2.0"?
+
+We're the second chapter of **Glitch (FRC 5854)**, a community team hosted at UNC Asheville that
+competed 2016–2020. When it paused during the pandemic, a mentor helped rebuild it in 2021 for
+Asheville High School's engineering program. The name survived, the team was rebuilt — that's the
+2.0. This is made prominent on the home page and the Our Story page.
 
 ## Deploying to GitHub Pages
 
-The repo includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that builds and deploys
-the site on every push to `main`.
+The repo includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that deploys on every
+push to `main`.
 
-1. Push this repo to GitHub (`Team8727/Glitch-2.0-Website`).
-2. In the repo settings: **Settings → Pages**, set **Source** to **GitHub Actions**.
-   (The workflow will do the rest on the next push.)
-3. The site will be live at `https://team8727.github.io/Glitch-2.0-Website/`.
+1. Push to GitHub (`Team8727/Glitch-2.0-Website`).
+2. In repo **Settings → Pages**, set **Source** to **GitHub Actions**. (If you prefer no workflow,
+   choose **Deploy from a branch** → `main` / `/(root)` instead, and delete the workflow file.)
+3. Live at `https://team8727.github.io/Glitch-2.0-Website/`.
 
 > All asset paths are relative, so the site works under the repo sub-path — no base URL config needed.
 
 ## Local development
 
-Just open `index.html` in a browser, or serve it:
+Open any page in a browser, or serve it:
 
 ```bash
-# any static server
 python -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -63,11 +64,12 @@ python -m http.server 8000
 ## File structure
 
 ```
-index.html                  single-page site
+index.html, about.html, robots.html, results.html,
+impact.html, sponsors.html, get-involved.html, news.html
 assets/
-  css/style.css             all styling
-  js/main.js                interactions (nav, reveal, terminal, countdown)
-  img/logo.png              team logo (hero visual)
+  css/style.css             all styling (shared)
+  js/main.js                interactions (nav, reveal, ticker, terminal, countdown)
+  img/logo.png              team logo (home hero)
   favicon.svg               favicon
 .github/workflows/pages.yml GitHub Pages deployment
 ```
@@ -75,7 +77,9 @@ assets/
 ## Notes / placeholders
 
 - **Sponsor slots** are placeholders ("Your logo here") — drop sponsor logos in `assets/img/` and
-  update the `#sponsors` section.
+  update the `#sponsors` section on `sponsors.html`.
 - The **2025 robot** is listed as undocumented (per the context repo) — fill it in when a team member
-  provides the details.
-- The **News** section is static; swap in real posts as needed.
+  provides details.
+- The **News** page is static; swap in real posts as needed.
+- Each page shares the same header/footer — update all pages together (or later move to a tiny
+  include/build step if you outgrow plain HTML).
