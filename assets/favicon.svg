@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <rect width="64" height="64" fill="#050505"/>
+  <g font-family="monospace" font-weight="800" font-size="44" fill="#04F904">
+    <text x="10" y="48">G</text>
+  </g>
+  <!-- glitch slices -->
+  <rect x="2" y="12" width="22" height="4" fill="#116DFF"/>
+  <rect x="40" y="48" width="22" height="3" fill="#FF00E5"/>
+  <rect x="2" y="2" width="60" height="2" fill="#04F904" opacity="0.7"/>
+  <rect x="2" y="60" width="60" height="2" fill="#04F904" opacity="0.7"/>
+</svg>
