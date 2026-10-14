@@ -212,7 +212,7 @@
       <div class="container cta-band reveal">
         <h2>Help keep the <span class="glow-text">glitch</span> running.</h2>
         <p>Every contribution — big or small — gets us closer to kickoff and keeps this student-led
-        team free and open to everyone. Pick an amount below — or send your own.</p>
+        team free and open to everyone. Pick an amount, enter your own, or send any amount via PayPal.</p>
         <div class="paypal-row">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations">
@@ -252,10 +252,24 @@
           </form>
         </div>
         <div class="cta-sub">
-          <a href="mailto:glitchtwopoint0@gmail.com?subject=Donation%20to%20Glitch%202.0">Donate a different amount via <b>email</b></a>
+          <a href="mailto:glitchtwopoint0@gmail.com?subject=Donation%20to%20Glitch%202.0">Prefer another way? <b>Email us</b></a>
           <span style="color:var(--muted);font-family:var(--font-mono);font-size:0.72rem">·</span>
           <a href="get-involved.html">Or <b>get involved</b> instead</a>
         </div>
+
+        <!-- Custom amount -->
+        <form class="donate-custom" id="donate-custom" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <span class="dc-label">Custom amount</span>
+          <input type="hidden" name="cmd" value="_donations">
+          <input type="hidden" name="business" value="glitchtwopoint0@gmail.com">
+          <input type="hidden" name="item_name" value="Donation to Glitch 2.0 — FRC Team 8727">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="no_note" value="0">
+          <input type="hidden" name="amount" id="dc-amount">
+          <span class="dc-input-wrap"><span class="dc-prefix">$</span><input class="dc-input" id="dc-input" type="number" inputmode="decimal" min="1" step="0.01" placeholder="0.00" aria-label="Custom donation amount in dollars"></span>
+          <button type="submit" class="dc-btn">Donate</button>
+          <p class="dc-error" role="alert">Please enter a valid amount (e.g. 40 or 37.50).</p>
+        </form>
       </div>
     </section>
   </main>

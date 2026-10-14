@@ -182,6 +182,30 @@
     setInterval(tick, 1000);
   }
 
+  /* ---------- Custom PayPal donation amount ---------- */
+  var donateForm = document.getElementById('donate-custom');
+  if (donateForm) {
+    var dcInput = document.getElementById('dc-input');
+    var dcAmount = document.getElementById('dc-amount');
+    var dcError = donateForm.querySelector('.dc-error');
+
+    donateForm.addEventListener('submit', function (e) {
+      var val = parseFloat(dcInput.value);
+      if (!isFinite(val) || val < 1 || val > 25000) {
+        e.preventDefault();
+        donateForm.classList.add('error');
+        dcInput.focus();
+        return;
+      }
+      donateForm.classList.remove('error');
+      dcAmount.value = val.toFixed(2);
+    });
+
+    dcInput.addEventListener('input', function () {
+      donateForm.classList.remove('error');
+    });
+  }
+
   /* ---------- Footer year ---------- */
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
