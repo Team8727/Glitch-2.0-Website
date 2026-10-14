@@ -187,23 +187,45 @@
   if (donateForm) {
     var dcInput = document.getElementById('dc-input');
     var dcAmount = document.getElementById('dc-amount');
-    var dcError = donateForm.querySelector('.dc-error');
+    var dcBtn = document.getElementById('dc-btn');
+    var dcMsg = document.getElementById('dc-msg');
+
+    function validate() {
+      var val = parseFloat(dcInput.value);
+      return isFinite(val) && val >= 1 && val <= 25000;
+    }
+
+    function updateState() {
+      if (validate()) {
+        donateForm.classList.add('valid');
+        donateForm.classList.remove('error');
+        dcBtn.disabled = false;
+      } else {
+        donateForm.classList.remove('valid');
+        donateForm.classList.remove('error');
+        dcBtn.disabled = true;
+        dcMsg.textContent = dcInput.value.trim() === ''
+          ? 'Enter an amount to donate.'
+          : 'Please enter a valid amount (e.g. 40 or 37.50).';
+      }
+    }
+
+    dcInput.addEventListener('input', updateState);
+    dcInput.addEventListener('change', updateState);
 
     donateForm.addEventListener('submit', function (e) {
-      var val = parseFloat(dcInput.value);
-      if (!isFinite(val) || val < 1 || val > 25000) {
+      if (!validate()) {
         e.preventDefault();
         donateForm.classList.add('error');
+        updateState();
         dcInput.focus();
         return;
       }
       donateForm.classList.remove('error');
-      dcAmount.value = val.toFixed(2);
+      dcAmount.value = parseFloat(dcInput.value).toFixed(2);
     });
 
-    dcInput.addEventListener('input', function () {
-      donateForm.classList.remove('error');
-    });
+    updateState();
   }
 
   /* ---------- Footer year ---------- */

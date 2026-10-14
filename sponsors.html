@@ -267,8 +267,8 @@
           <input type="hidden" name="no_note" value="0">
           <input type="hidden" name="amount" id="dc-amount">
           <span class="dc-input-wrap"><span class="dc-prefix">$</span><input class="dc-input" id="dc-input" type="number" inputmode="decimal" min="1" step="0.01" placeholder="0.00" aria-label="Custom donation amount in dollars"></span>
-          <button type="submit" class="dc-btn">Donate</button>
-          <p class="dc-error" role="alert">Please enter a valid amount (e.g. 40 or 37.50).</p>
+          <button type="submit" class="dc-btn" id="dc-btn" disabled>Donate</button>
+          <p class="dc-msg" id="dc-msg" role="status">Enter an amount to donate.</p>
         </form>
       </div>
     </section>
